@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Belalai-E-Wallet-Backend/internal/middleware"
-	"github.com/Belalai-E-Wallet-Backend/internal/routers"
 	"github.com/Belalai-E-Wallet-Backend/vercel/config"
+	"github.com/Belalai-E-Wallet-Backend/vercel/middleware"
+	routers "github.com/Belalai-E-Wallet-Backend/vercel/router"
 	"github.com/gin-gonic/gin"
 )
 
