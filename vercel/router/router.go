@@ -8,8 +8,8 @@ import (
 	"github.com/redis/go-redis/v9"
 
 	docs "github.com/Belalai-E-Wallet-Backend/docs"
-	"github.com/Belalai-E-Wallet-Backend/internal/middleware"
 	"github.com/Belalai-E-Wallet-Backend/internal/models"
+	"github.com/Belalai-E-Wallet-Backend/vercel/middleware"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )

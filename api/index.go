@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/Belalai-E-Wallet-Backend/vercel/config"
-	"github.com/Belalai-E-Wallet-Backend/vercel/middleware"
 	routers "github.com/Belalai-E-Wallet-Backend/vercel/router"
 	"github.com/gin-gonic/gin"
 )
@@ -21,10 +20,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 func setupApp() *gin.Engine {
 
-	app := gin.New()
-	app.Use(gin.Recovery())
-	app.Use(middleware.CORSMiddleware)
-
 	// --- CONNECT DATABASE ---
 	db, err := config.ConnectDB()
 	if err != nil {
@@ -37,7 +32,7 @@ func setupApp() *gin.Engine {
 		panic("Redis connection failed: " + err.Error())
 	}
 
-	routers.InitRouter(db, rdb)
+	app := routers.InitRouter(db, rdb)
 	app.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{
 			"Success": true,
